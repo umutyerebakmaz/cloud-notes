@@ -6,7 +6,7 @@ Let's create a new droplet by including the public keys.
 
 Access the server terminal with the digitalocean console.
 
-follow this commands and edits
+open your ssh config file and edit
 
 ```terminal
 sudo nano /etc/ssh/sshd_config
@@ -30,6 +30,12 @@ AcceptEnv LANG LC_*
 Subsystem       sftp    /usr/lib/openssh/sftp-server
 ```
 
+restart sshd service
+
+```console
+systemctl restart sshd
+```
+
 ## Add Authorized Key
 
 ```console
@@ -42,3 +48,5 @@ ssh-copy-id -f -i ~/.ssh/id_rsa.pub root@your_droplet_ip
 ssh root@your_droplet_ip
 cat ~/.ssh/authorized_keys
 ```
+
+## Nginx
