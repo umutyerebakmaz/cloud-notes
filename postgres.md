@@ -51,6 +51,13 @@ listen_addresses = '*'
 sudo systemctl restart postgresql
 ```
 
+## Add Firewall Rules
+
+```terminal
+sudo ufw allow 5432/tcp
+
+```
+
 ## Remote Connection Test
 
 ```terminal
