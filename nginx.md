@@ -26,6 +26,18 @@ For this process, you must have previously defined the ssh key for the droplet i
 git clone git@github.com:umutyerebakmaz/cloud-notes.git
 ```
 
+```console
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
+yarn install
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan db:seed
+sudo systemctl restart nginx
+```
+
 cd /var/www/umutyerebakmaz.com/umutyerebakmaz
 
 ## Add SSL Certificate with Certbot
